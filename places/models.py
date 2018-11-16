@@ -2,25 +2,75 @@ from django.db import models
 
 
 class Place(models.Model):
-    BAR = 'b'
-    RESTAURANT = 'r'
-    THEATRE = 't'
+    BALL = 'ba'
+    CONCERT = 'co'
+    MUSIC_HALL = 'mh'
+    CIRQUE = 'ci'
+    RESTAURANT = 're'
+    RESTAURANT_DE = 'rn'
+    THEATRE = 'th'
+    CABARET = 'ca'
+    PATINAGE = 'pa'
+
     CATEGORY_CHOICES = (
-        (BAR, 'Bar'),
+        (BALL, 'Ball'),
+        (CONCERT, 'Cafe/Concert'),
+        (MUSIC_HALL, 'Music hall'),
+        (CIRQUE, 'Cirque'),
         (RESTAURANT, 'Restaurant'),
+        (RESTAURANT_DE, 'Restaurant de nuit'),
         (THEATRE, 'Theatre'),
+        (CABARET, 'Cabaret'),
+        (PATINAGE, 'Skating'),
     )
 
     name = models.TextField()
     description = models.TextField()
+    description_orig = models.TextField()
     address = models.TextField()
     coordinate_x = models.IntegerField()
     coordinate_y = models.IntegerField()
     map_id = models.IntegerField()
-    type = models.CharField(max_length=1, choices=CATEGORY_CHOICES)
-    # specific_type =
-    # neighborhood =
-    # cost
-    # working hour
-    photo = models.URLField()  # TODO: how many
-    poster = models.URLField()  # TODO: how many
+    type = models.CharField(max_length=2, choices=CATEGORY_CHOICES)
+    neighborhood = models.ForeignKey(Neighborhood, on_delete=models.CASCADE)
+    comment = models.TextField()
+    nearest_metro = models.ForeignKey(MetroStation, on_delete=models.CASCADE)
+
+
+class PlaceImage(models.Model):
+    POSTER = 'po'
+    PHOTO = 'ph'
+    HAND_MADE = 'hm'
+
+    TYPE_CHOICES = (
+        (POSTER, 'Poster'),
+        (PHOTO, 'Photo'),
+        (HAND_MADE, 'Hand made'),
+    )
+    link = models.URLField()
+    desc = models.TextField()
+    type = models.CharField(max_length=2, choices=TYPE_CHOICES)
+    is_black_white = models.BooleanField(default=False)
+    place = models.ForeignKey(Place, on_delete=models.CASCADE)
+
+
+class Neighborhood(models.Model):
+    name = models.TextField()
+    description = models.TextField()
+
+
+class MetroStation(models.Model):
+    name = models.TextField()
+
+
+class Menu(models.Model):
+    name = models.TextField()
+    # hour = models.TextField() TODO
+    place = models.ForeignKey(Place, on_delete=models.CASCADE)
+    comment = models.TextField()
+
+
+class MenuOption(models.Model):
+    name = models.TextField()
+    cost = models.FloatField()
+    menu = models.ForeignKey(Menu, on_delete=models.CASCADE)
