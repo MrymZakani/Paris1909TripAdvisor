@@ -1,6 +1,15 @@
 from django.db import models
 
 
+class Neighborhood(models.Model):
+    name = models.TextField()
+    description = models.TextField()
+
+
+class MetroStation(models.Model):
+    name = models.TextField()
+
+
 class Place(models.Model):
     BALL = 'ba'
     CONCERT = 'co'
@@ -52,15 +61,6 @@ class PlaceImage(models.Model):
     type = models.CharField(max_length=2, choices=TYPE_CHOICES)
     is_black_white = models.BooleanField(default=False)
     place = models.ForeignKey(Place, on_delete=models.CASCADE)
-
-
-class Neighborhood(models.Model):
-    name = models.TextField()
-    description = models.TextField()
-
-
-class MetroStation(models.Model):
-    name = models.TextField()
 
 
 class Menu(models.Model):
