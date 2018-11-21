@@ -5,9 +5,15 @@ class Neighborhood(models.Model):
     name = models.TextField()
     description = models.TextField()
 
+    def __str__(self):
+        return self.name
+
 
 class MetroStation(models.Model):
     name = models.TextField()
+
+    def __str__(self):
+        return self.name
 
 
 class Place(models.Model):
@@ -45,6 +51,9 @@ class Place(models.Model):
     comment = models.TextField()
     nearest_metro = models.ForeignKey(MetroStation, on_delete=models.CASCADE)
 
+    def __str__(self):
+        return self.name
+
 
 class PlaceImage(models.Model):
     POSTER = 'po'
@@ -62,6 +71,9 @@ class PlaceImage(models.Model):
     is_black_white = models.BooleanField(default=False)
     place = models.ForeignKey(Place, on_delete=models.CASCADE)
 
+    def __str__(self):
+        return str(self.id) + "/" + str(self.place.name) + "---" + str(self.type)
+
 
 class Menu(models.Model):
     name = models.TextField()
@@ -69,8 +81,14 @@ class Menu(models.Model):
     place = models.ForeignKey(Place, on_delete=models.CASCADE)
     comment = models.TextField()
 
+    def __str__(self):
+        return str(self.place.name) + "--" + str(self.name)
+
 
 class MenuOption(models.Model):
     name = models.TextField()
     cost = models.FloatField()
     menu = models.ForeignKey(Menu, on_delete=models.CASCADE)
+
+    def __str__(self):
+        return str(self.menu) + "--" + str(self.name)
