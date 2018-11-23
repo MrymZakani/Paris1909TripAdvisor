@@ -132,8 +132,8 @@ class DaySchedule(models.Model):
 
     schedule = models.ForeignKey(Schedule, on_delete=models.CASCADE)
     type = models.CharField(max_length=2, choices=DAY_CHOICES)
-    opens_at = models.TimeField(null=True, blank=True, null=True, blank=True)
-    closes_at = models.TimeField(null=True, blank=True, null=True, blank=True)
+    opens_at = models.TimeField(null=True, blank=True)
+    closes_at = models.TimeField(null=True, blank=True)
 
     def __str__(self):
         return str(self.schedule) + "--" + str(self.type)
