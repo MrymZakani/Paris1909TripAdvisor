@@ -40,7 +40,7 @@ class PlaceAdmin(admin.ModelAdmin):
     list_display = (
         'name', 'description', 'address',
         'coordinate_x', 'coordinate_y', 'map_id', 'type',)
-    inlines = [PlaceImageInline, ScheduleInline, ]
+    inlines = [PlaceImageInline, ]
 
 
 @admin.register(PlaceImage)
