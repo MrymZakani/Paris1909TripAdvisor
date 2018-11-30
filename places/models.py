@@ -58,6 +58,9 @@ class Place(models.Model):
     wiki_data_link = models.URLField(null=True, blank=True)
     phone_number = models.TextField(null=True, blank=True, max_length=50)
 
+    def get_first_image(self):
+        return self.images.all()[0].link
+
     def __str__(self):
         return self.name
 
@@ -76,7 +79,7 @@ class PlaceImage(models.Model):
     desc = models.TextField(null=True, blank=True)
     type = models.CharField(max_length=2, choices=TYPE_CHOICES)
     is_black_white = models.BooleanField(default=False)
-    place = models.ForeignKey(Place, on_delete=models.CASCADE)
+    place = models.ForeignKey(Place, on_delete=models.CASCADE, related_name="images")
 
     def __str__(self):
         return str(self.id) + "/" + str(self.place.name) + "---" + str(self.type)

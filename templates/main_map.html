@@ -3,8 +3,6 @@
 {% load staticfiles %}
 
 
-{% block title %} Paris 1909 TripAdvisor{% endblock title %}
-
 {% block content %}
     <div class="uk-margin-auto uk-padding-large">
         <img src="{% static "images/map.jpg" %}">
@@ -42,7 +40,9 @@
 
             </div>
 
-            <button class="uk-margin uk-button uk-button-default">Explore!</button>
+            <a class="uk-margin" href="explore/">
+                <button class="uk-button uk-button-default">Explore!</button>
+            </a>
         </div>
     </div>
 

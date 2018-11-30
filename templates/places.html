@@ -1,0 +1,72 @@
+{% extends "base.html" %}
+{% load static %}
+{% load staticfiles %}
+
+{% block content %}
+    <div class="uk-light">
+        <h2>Explore Paris</h2>
+
+        <div uk-grid>
+            <div class="uk-width-1-2 uk-light">
+                {% for place in places %}
+                    <div class="uk-card uk-card-default uk-grid-collapse uk-child-width-1-2@s uk-margin" uk-grid>
+                        <div class="uk-card-media-left uk-cover-container">
+                            <img src="{{ place.get_first_image }}" alt="" uk-cover>
+                            <canvas width="600" height="400"></canvas>
+                        </div>
+                        <div>
+                            <div class="uk-card-body">
+                                <h3 class="uk-card-title">{{ place.name }}</h3>
+
+                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+                                    incididunt.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                {% endfor %}
+
+            </div>
+            <div class="uk-width-1-2">
+                <img src="{% static "images/map.jpg" %}">
+
+                <div class=" uk-width-1-2 uk-margin-auto">
+                    <form>
+                        <fieldset class="uk-fieldset">
+
+                            <legend class="uk-legend">Search for a place</legend>
+
+                            <div class="uk-margin">
+                                <input class="uk-input" type="text" placeholder="Name">
+                            </div>
+
+                            <div class="uk-margin">
+                                <select class="uk-select">
+                                    {% for category in categories %}
+                                        <option>{{ category }}</option>
+                                    {% endfor %}
+                                </select>
+                            </div>
+
+                            <div class="uk-margin">
+                                <select class="uk-select">
+                                    <option>Working hour</option>
+                                </select>
+                            </div>
+
+                            <div class="uk-margin">
+                                <select class="uk-select">
+                                    <option>Price</option>
+                                </select>
+                            </div>
+
+                        </fieldset>
+                    </form>
+                </div>
+            </div>
+
+        </div>
+
+
+    </div>
+{% endblock content %}
