@@ -59,7 +59,9 @@ class Place(models.Model):
     phone_number = models.TextField(null=True, blank=True, max_length=50)
 
     def get_first_image(self):
-        return self.images.all()[0].link
+        if len(self.images.all()) > 0:
+            return self.images.all()[0].link
+        return "https://www.freeiconspng.com/uploads/no-image-icon-4.png"
 
     def __str__(self):
         return self.name
