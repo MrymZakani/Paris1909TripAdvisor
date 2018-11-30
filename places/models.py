@@ -54,6 +54,7 @@ class Place(models.Model):
     nearest_metro = models.ForeignKey(MetroStation, on_delete=models.CASCADE, null=True, blank=True)
     geo_name_id = models.TextField(null=True, blank=True)
     wiki_data_link = models.URLField(null=True, blank=True)
+    phone_number = models.TextField(null=True, blank=True, max_length=50)
 
     def __str__(self):
         return self.name
@@ -143,7 +144,7 @@ class Cost(models.Model):
     place = models.OneToOneField(Place, on_delete=models.CASCADE)
 
     def __str__(self):
-        return "Cost of" + str(self.place.name)
+        return "Cost of " + str(self.place.name)
 
 
 class BallCost(Cost):
