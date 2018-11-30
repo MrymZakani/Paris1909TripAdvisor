@@ -26,6 +26,7 @@ class Place(models.Model):
     THEATRE = 'th'
     CABARET = 'ca'
     PATINAGE = 'pa'
+    OTHER = 'ot'
 
     CATEGORY_CHOICES = (
         (BALL, 'Ball'),
@@ -37,6 +38,7 @@ class Place(models.Model):
         (THEATRE, 'Theatre'),
         (CABARET, 'Cabaret'),
         (PATINAGE, 'Skating'),
+        (OTHER, 'Other'),
     )
 
     name = models.TextField()

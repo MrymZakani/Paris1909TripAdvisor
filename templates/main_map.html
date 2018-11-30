@@ -1,0 +1,49 @@
+{% extends "base.html" %}
+{% load static %}
+{% load staticfiles %}
+
+
+{% block title %} Paris 1909 TripAdvisor{% endblock title %}
+
+{% block content %}
+    <div class="uk-margin-auto uk-padding-large">
+        <img src="{% static "images/improved map.jpg" %}">
+        <a class="uk-position-absolute uk-transform-center" style="left: 40%; top: 30%" href="#" uk-marker></a>
+        <a class="uk-position-absolute uk-transform-center" style="left: 50%; top: 50%" href="#" uk-marker></a>
+        <a class="uk-position-absolute uk-transform-center" style="left: 60%; top: 50%" href="#" uk-marker></a>
+
+        <div class="uk-light ">
+            <h2 class="">Paris 1909</h2>
+
+            <div>
+                Il n’y a pas de ville au monde oú les sensations de plaisir soient plus nombreuses et plus variées qu’à
+                Paris. Tout distrait, tout amuse, tout enchante, tout instruit. En flânant dans les rues, sur les
+                boulevards, dans les promenades publiques, le long des quais de la Seine, que de scènes jolies et
+                pittoresques, que de tableaux vivantes!
+
+                Dans ce volume-ci: Le Guide des Plaisirs, qui a suscité de si nombreuses et de si maladroites
+                imitations, oú
+                la pauvreté du texte, l’insuffisance des renseignements se dissimulent mal sous l’ordure et la
+                grossièreté,
+                -dans ce volume qui a eu les honneurs de la traduction étrangère, nous nous sommes surtout efforcé de
+                mettre
+                l'étranger au courant de ce qu’on appelle la Vie à Paris.
+
+                On aura la clef d’or qui ouvre les Paradis parisiens, et l’on saura les portes qu’il ne faut pas
+                franchir.
+                Notre expérience de vieux Parisien servira à régler les pas et à préserver la marche de ceux qui
+                s’aventurent pour la première fois dans les dédales de Paris. Qui dit expérience dit science. Il y a
+                aussi
+                une science des Plaisirs de Paris qu’on n’acquiert qu’à ses dépens et avec beaucoup de déboires. Notre
+                livre
+                a pour but d’épargner à l’étranger les déboires et les désillusions qui attristent le voyage, les pertes
+                de
+                temps qui le prolongent inutilement, et les pertes d’argent qui sont toujours désagréables.
+
+            </div>
+
+            <button class="uk-margin uk-button uk-button-default">Explore!</button>
+        </div>
+    </div>
+
+{% endblock content %}
