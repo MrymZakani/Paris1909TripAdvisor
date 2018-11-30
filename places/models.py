@@ -142,6 +142,9 @@ class DaySchedule(models.Model):
 class Cost(models.Model):
     place = models.OneToOneField(Place, on_delete=models.CASCADE)
 
+    def __str__(self):
+        return "Cost of" + str(self.place.name)
+
 
 class BallCost(Cost):
     entrance_from = models.FloatField(null=True, blank=True)
