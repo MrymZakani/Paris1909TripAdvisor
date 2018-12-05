@@ -37,9 +37,9 @@
                             <div>
                                 <div class="uk-card-body">
                                     <h3 class="uk-card-title">{{ place.name }}</h3>
+                                    <span class="uk-label uk-label-warning">{{ place.category }}</span>
 
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-                                        incididunt.</p>
+                                    <p>{{ place.description|slice:":100" }}...</p>
                                 </div>
                             </div>
                         </div>
