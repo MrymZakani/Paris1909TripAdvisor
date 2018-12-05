@@ -8,7 +8,7 @@
 
         <h3>Categories</h3>
 
-        <div class="uk-child-width-1-5@m uk-grid-small uk-grid-match" uk-grid>
+        <div class="uk-child-width-1-4@m uk-grid-small uk-grid-match" uk-grid>
             {% for category in categories %}
                 <div>
                     <div class="uk-card uk-card-default uk-grid-collapse uk-child-width-1-2@s uk-margin" uk-grid>
@@ -16,10 +16,7 @@
                             <img src="{{ category.image }}" alt="" uk-cover>
                         </div>
                         <div>
-                            <div class="uk-card-body">
-                                <h3 class="uk-card-title">{{ category.name }}</h3>
-
-                            </div>
+                            <h4 class="uk-card-title uk-padding-small">{{ category.name }}</h4>
                         </div>
                     </div>
                 </div>
