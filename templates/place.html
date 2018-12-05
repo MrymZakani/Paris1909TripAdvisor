@@ -18,11 +18,26 @@
                 <h1>{{ place.name }}</h1>
 
                 <p>{{ place.description }}</p>
+
+                {% if place.description_orig %}
+                    <a>See original text</a>
+                    <p>{{ place.description_orig }}</p>
+                {% endif %}
             </div>
 
             <div>
                 <h3>details</h3>
 
+                <div>
+                    <div class="uk-card uk-card-default uk-grid-collapse uk-child-width-1-2@s uk-margin" uk-grid>
+                        <div class="uk-card-media-left uk-cover-container">
+                            <img src="{{ place.category.image }}" alt="" uk-cover>
+                        </div>
+                        <div>
+                            <h4 class="uk-card-title uk-padding-small">{{ place.category.name }}</h4>
+                        </div>
+                    </div>
+                </div>
                 {% if place.address %}<p>{{ place.address }}</p>{% endif %}
 
                 {% if place.neighborhood %}<p> <p>{{ place.neighborhood }}</p>{% endif %}
@@ -30,8 +45,17 @@
                 {% if place.phone_number %}<p>{{ place.phone_number }}</p>{% endif %}
 
                 {% if place.comment %}<p>{{ place.comment }}</p>{% endif %}
+
+                {% if place.longitude and place.latitude %}<a>
+                    See contemporary place!
+                </a>{% endif %}
             </div>
         </div>
+
+        {% if place.wiki_data_link %}
+            <h3>Useful links</h3>
+            <a href="{{ place.wiki_data_link }}">{{ place.wiki_data_link }}</a>
+        {% endif %}
 
         <h3>See also</h3>
 
