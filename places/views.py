@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from places.models import Place
+from places.models import Place, Category
 
 
 def home(request):
@@ -8,6 +8,6 @@ def home(request):
 
 def explore(request):
     places = Place.objects.all()
-    categories = [x[1] for x in Place.CATEGORY_CHOICES]
+    categories = Category.objects.all()
 
     return render(request, 'places.html', {'places': places, 'categories': categories})

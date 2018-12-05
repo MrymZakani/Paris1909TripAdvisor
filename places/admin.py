@@ -2,7 +2,7 @@ from django.contrib import admin
 
 # Register your models here.
 from places.models import Neighborhood, MetroStation, Place, PlaceImage, Menu, MenuOption, Schedule, DaySchedule, Cost, \
-    BallCost, CabaretCost, PatinageCost, AuditoriumTypeCost
+    BallCost, CabaretCost, PatinageCost, AuditoriumTypeCost, Category
 
 
 class PlaceImageInline(admin.TabularInline):
@@ -27,6 +27,11 @@ class AuditoriumTypeCostInline(admin.TabularInline):
 
 @admin.register(Neighborhood)
 class NeighborhoodAdmin(admin.ModelAdmin):
+    list_display = ('name', 'description')
+
+
+@admin.register(Category)
+class CategoryAdmin(admin.ModelAdmin):
     list_display = ('name', 'description')
 
 

@@ -16,6 +16,15 @@ class MetroStation(models.Model):
         return self.name
 
 
+class Category(models.Model):
+    name = models.TextField()
+    description = models.TextField(null=True, blank=True)
+    image = models.URLField()
+
+    def __str__(self):
+        return self.name
+
+
 class Place(models.Model):
     BALL = 'ba'
     CONCERT = 'co'
@@ -45,6 +54,7 @@ class Place(models.Model):
     description = models.TextField(null=True, blank=True)
     description_orig = models.TextField(null=True, blank=True)
     address = models.TextField(null=True, blank=True)
+    category = models.ForeignKey(Category, null=True, blank=True, on_delete=models.CASCADE)
     coordinate_x = models.IntegerField(null=True, blank=True)
     coordinate_y = models.IntegerField(null=True, blank=True)
     longitude = models.FloatField(null=True, blank=True)
