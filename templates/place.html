@@ -1,0 +1,53 @@
+{% extends "base.html" %}
+{% load static %}
+{% load staticfiles %}
+
+{% block content %}
+    <div class="uk-light">
+
+        <ul class="uk-breadcrumb">
+            <li><a href="/explore/">All places</a></li>
+            <li><span>{{ place.name }}</span></li>
+        </ul>
+        <div class="uk-child-width-1-3@m uk-grid-small" uk-grid>
+            <div>
+                <img style="display: block;width: auto; height: auto;"
+                     src="{{ place.get_first_image }}">
+            </div>
+            <div>
+                <h1>{{ place.name }}</h1>
+
+                <p>{{ place.description }}</p>
+            </div>
+
+            <div>
+                <h3>details</h3>
+
+                {% if place.address %}<p>{{ place.address }}</p>{% endif %}
+
+                {% if place.neighborhood %}<p> <p>{{ place.neighborhood }}</p>{% endif %}
+
+                {% if place.phone_number %}<p>{{ place.phone_number }}</p>{% endif %}
+
+                {% if place.comment %}<p>{{ place.comment }}</p>{% endif %}
+            </div>
+        </div>
+
+        <h3>See also</h3>
+
+        <div class="uk-child-width-1-4@m uk-grid-small uk-grid-match uk-padding" uk-grid>
+            {% for place in similar_places %}
+                <div>
+                    <div class="uk-card uk-card-default uk-grid-collapse uk-child-width-1-2@s uk-margin" uk-grid>
+                        <div class="uk-card-media-left uk-cover-container">
+                            <img src="{{ place.get_first_image }}" alt="" uk-cover>
+                        </div>
+                        <div>
+                            <h4 class="uk-card-title uk-padding-small">{{ place.name }}</h4>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+{% endblock content %}

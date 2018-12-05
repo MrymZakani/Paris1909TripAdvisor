@@ -22,26 +22,28 @@
                 </div>
             {% endfor %}
         </div>
+
         <div uk-grid>
 
             <div class="uk-width-1-2 uk-light">
                 <h3>Places</h3>
 
                 {% for place in places %}
-                    <div class="uk-card uk-card-default uk-grid-collapse uk-child-width-1-2@s uk-margin" uk-grid>
-                        <div class="uk-card-media-left uk-cover-container">
-                            <img src="{{ place.get_first_image }}" alt="" uk-cover>
-                        </div>
-                        <div>
-                            <div class="uk-card-body">
-                                <h3 class="uk-card-title">{{ place.name }}</h3>
+                    <a href="/place_info/{{ place.id }}">
+                        <div class="uk-card uk-card-default uk-grid-collapse uk-child-width-1-2@s uk-margin" uk-grid>
+                            <div class="uk-card-media-left uk-cover-container">
+                                <img src="{{ place.get_first_image }}" alt="" uk-cover>
+                            </div>
+                            <div>
+                                <div class="uk-card-body">
+                                    <h3 class="uk-card-title">{{ place.name }}</h3>
 
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-                                    incididunt.</p>
+                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+                                        incididunt.</p>
+                                </div>
                             </div>
                         </div>
-                    </div>
-
+                    </a>
                 {% endfor %}
 
             </div>

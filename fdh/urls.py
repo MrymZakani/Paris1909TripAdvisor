@@ -22,4 +22,5 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     url(r'^$', views.home),
     url(r'^explore/$', views.explore),
+    url(r'^place_info/(\d+)$', views.place_info),
 ]
