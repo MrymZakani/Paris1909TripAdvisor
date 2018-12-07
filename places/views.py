@@ -14,6 +14,17 @@ def explore(request):
     return render(request, 'places.html', {'places': places, 'categories': categories})
 
 
+def find(request):
+    places = Place.objects.all()
+
+    search_for = request.GET.get('search_for')
+    print(search_for)
+    if search_for:
+        places = places.filter(name__icontains=search_for)
+
+    return render(request, 'find_places.html', {'places': places})
+
+
 def place_info(request, id):
     place = Place.objects.get(id=id)
     similar_places = Place.objects.filter(category=place.category).exclude(id=place.id)

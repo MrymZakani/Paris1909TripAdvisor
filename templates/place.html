@@ -2,6 +2,10 @@
 {% load static %}
 {% load staticfiles %}
 
+{% block page_title %}
+    {{ place.name }}
+{% endblock %}
+
 {% block content %}
     <div class="uk-light">
 
@@ -15,8 +19,6 @@
                      src="{{ place.get_first_image }}">
             </div>
             <div>
-                <h1>{{ place.name }}</h1>
-
                 <p>{{ place.description }}</p>
 
                 {% if place.description_orig %}

@@ -39,7 +39,7 @@
                             <div>
                                 <div class="uk-card-body">
                                     <h3 class="uk-card-title">{{ place.name }}</h3>
-                                    <span class="uk-label uk-label-warning">{{ place.category }}</span>
+                                    <span class="uk-label uk-label-warning uk-margin-remove uk-padding-remove">{{ place.category }}</span>
 
                                     <p>{{ place.description|slice:":100" }}...</p>
                                 </div>
@@ -50,7 +50,7 @@
 
             </div>
             <div class="uk-width-1-2">
-                <div class="uk-inline uk-dark">
+                <div class="uk-inline uk-dark" uk-sticky >
                     <img src="{% static "images/map.jpg" %}">
                     {% for place in places %}
                         {% if place.get_x and place.get_y %}
@@ -61,40 +61,6 @@
                                uk-tooltip="{{ place.name }}"></a>
                         {% endif %}
                     {% endfor %}
-                </div>
-
-                <div class=" uk-width-1-2 uk-margin-auto">
-                    <form>
-                        <fieldset class="uk-fieldset">
-
-                            <legend class="uk-legend">Search for a place</legend>
-
-                            <div class="uk-margin">
-                                <input class="uk-input" type="text" placeholder="Name">
-                            </div>
-
-                            <div class="uk-margin">
-                                <select class="uk-select">
-                                    {% for category in categories %}
-                                        <option>{{ category }}</option>
-                                    {% endfor %}
-                                </select>
-                            </div>
-
-                            <div class="uk-margin">
-                                <select class="uk-select">
-                                    <option>Working hour</option>
-                                </select>
-                            </div>
-
-                            <div class="uk-margin">
-                                <select class="uk-select">
-                                    <option>Price</option>
-                                </select>
-                            </div>
-
-                        </fieldset>
-                    </form>
                 </div>
             </div>
 

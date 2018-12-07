@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+{% load static %}
+{% load staticfiles %}
+{% block page_title %}
+    Are you looking for a specific place?
+{% endblock page_title %}
+{% block content %}
+    <div class="uk-light" style="text-align: center">
+
+        <form action="/find/" method="get">
+            <fieldset class="uk-fieldset">
+
+                <legend class="uk-legend">Search for a place</legend>
+
+                <div class="uk-margin">
+                    <input class="uk-input uk-width-large" type="text" placeholder="Name" id="search_for"
+                           name="search_for">
+                    <input type="submit" value="Search" class="uk-button uk-button-default">
+                </div>
+            </fieldset>
+        </form>
+
+        <div class="uk-child-width-1-4@m uk-grid-small uk-grid-match uk-padding" uk-grid>
+            {% for place in places %}
+                <a href="/place_info/{{ place.id }}">
+                    <div>
+                        <div class="uk-card uk-card-default uk-grid-collapse uk-child-width-1-2@s uk-margin" uk-grid>
+                            <div class="uk-card-media-left uk-cover-container">
+                                <img src="{{ place.get_first_image }}" alt="" uk-cover>
+                            </div>
+                            <div>
+                                <h4 class="uk-card-title uk-padding-small">{{ place.name }}</h4>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+            {% endfor %}
+        </div>
+
+
+    </div>
+{% endblock content %}

@@ -1,7 +1,9 @@
 {% extends "base.html" %}
 {% load static %}
 {% load staticfiles %}
-
+{% block page_title %}
+    Paris 1909 TripAdvisor
+{% endblock %}
 
 {% block content %}
     <div class="uk-margin-auto uk-padding-large">
@@ -14,7 +16,8 @@
                        style="left: {{ place.get_x }}%; top: {{ place.get_y }}%; background-image: url({% static "images/placeholder.png" %}); width: 12px;"
                        href="/place_info/{{ place.id }}"
                        uk-tooltip="{{ place.name }}"></a>
-                    <div uk-dropdown="pos: top-center" class="uk-margin-remove uk-background-cover" data-src="{{ place.get_first_image }}" uk-img style="height: 100px">
+                    <div uk-dropdown="pos: top-center" class="uk-margin-remove uk-background-cover"
+                         data-src="{{ place.get_first_image }}" uk-img style="height: 100px">
 
                     </div>
                 {% endif %}
