@@ -11,9 +11,12 @@
                 {% if place.get_x and place.get_y %}
                     <a class="uk-position-absolute uk-transform-center place-on-map uk-icon uk-icon-image"
                        id="place-{{ place.id }}"
-                       style="left: {{ place.get_x }}%; top: {{ place.get_y }}%; background-image: url({% static "images/placeholder.png" %}); width: 7px;"
+                       style="left: {{ place.get_x }}%; top: {{ place.get_y }}%; background-image: url({% static "images/placeholder.png" %}); width: 12px;"
                        href="/place_info/{{ place.id }}"
-                            ></a>
+                       uk-tooltip="{{ place.name }}"></a>
+                    <div uk-dropdown="pos: top-center" class="uk-margin-remove uk-background-cover" data-src="{{ place.get_first_image }}" uk-img style="height: 100px">
+
+                    </div>
                 {% endif %}
             {% endfor %}
         </div>
