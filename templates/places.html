@@ -1,11 +1,12 @@
 {% extends "base.html" %}
 {% load static %}
 {% load staticfiles %}
-
+{% block page_title %}
+    Explore Paris
+{% endblock page_title %}
 {% block content %}
     <div>
         <div class="uk-light">
-            <h2>Explore Paris</h2>
 
             <h3>Categories</h3>
         </div>
@@ -53,7 +54,8 @@
                     <img src="{% static "images/map.jpg" %}">
                     {% for place in places %}
                         {% if place.get_x and place.get_y %}
-                            <a class="uk-position-absolute uk-transform-center place-on-map uk-icon uk-icon-image" id="place-{{ place.id }}"
+                            <a class="uk-position-absolute uk-transform-center place-on-map uk-icon uk-icon-image"
+                               id="place-{{ place.id }}"
                                style="left: {{ place.get_x }}%; top: {{ place.get_y }}%; background-image: url({% static "images/placeholder.png" %}); width: 7px;"
                                href="/place_info/{{ place.id }}"
                                uk-tooltip="{{ place.name }}"></a>
