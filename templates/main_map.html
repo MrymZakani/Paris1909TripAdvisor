@@ -5,12 +5,19 @@
 
 {% block content %}
     <div class="uk-margin-auto uk-padding-large">
-        <img src="{% static "images/map.jpg" %}">
-        <a class="uk-position-absolute uk-transform-center" style="left: 40%; top: 30%" href="#" uk-marker></a>
-        <a class="uk-position-absolute uk-transform-center" style="left: 50%; top: 50%" href="#" uk-marker></a>
-        <a class="uk-position-absolute uk-transform-center" style="left: 60%; top: 50%" href="#" uk-marker></a>
-
-        <div class="uk-light ">
+        <div class="uk-inline uk-dark">
+            <img src="{% static "images/map.jpg" %}">
+            {% for place in places %}
+                {% if place.get_x and place.get_y %}
+                    <a class="uk-position-absolute uk-transform-center place-on-map uk-icon uk-icon-image"
+                       id="place-{{ place.id }}"
+                       style="left: {{ place.get_x }}%; top: {{ place.get_y }}%; background-image: url({% static "images/placeholder.png" %});"
+                       href="/place_info/{{ place.id }}"
+                            ></a>
+                {% endif %}
+            {% endfor %}
+        </div>
+        <div class="uk-light">
             <h2 class="">Paris 1909</h2>
 
             <div>

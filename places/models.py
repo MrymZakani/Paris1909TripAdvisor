@@ -73,6 +73,14 @@ class Place(models.Model):
             return self.images.all()[0].link
         return "https://www.freeiconspng.com/uploads/no-image-icon-4.png"
 
+    def get_x(self):
+        return int(
+            self.coordinate_x * 100 / 4000) if self.coordinate_x and self.coordinate_x < 4000 and self.coordinate_x > 0 else None
+
+    def get_y(self):
+        return int(
+            self.coordinate_y * 100 / 2684) if self.coordinate_y and self.coordinate_y < 2684 and self.coordinate_y > 0 else None
+
     def __str__(self):
         return self.name
 

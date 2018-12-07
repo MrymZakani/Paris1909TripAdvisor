@@ -1,4 +1,5 @@
-html,body {
+html, body {
     background-color: #11100c;
+    background: #11100c !important;
     height: 100%;
 }

@@ -3,7 +3,8 @@ from places.models import Place, Category
 
 
 def home(request):
-    return render(request, 'main_map.html', {})
+    places = Place.objects.all()
+    return render(request, 'main_map.html', {'places': places})
 
 
 def explore(request):
