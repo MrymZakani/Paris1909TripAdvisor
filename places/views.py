@@ -10,8 +10,8 @@ def home(request):
 def explore(request):
     places = Place.objects.all()
     categories = Category.objects.all()
-
-    return render(request, 'places.html', {'places': places, 'categories': categories})
+    return render(request, 'places.html', {'places': [place.serialize() for place in places],
+                                           'categories': categories})
 
 
 def find(request):

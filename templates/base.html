@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.0-rc.20/css/uikit.min.css"/>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.0-rc.20/js/uikit.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.0-rc.20/js/uikit-icons.min.js"></script>
+    {% block extra_js %}{% endblock extra_js %}
 </head>
 <body>
 <nav class="uk-navbar-container uk-navbar-transparent uk-light" uk-navbar>
@@ -46,5 +47,8 @@
 
     {% endblock content %}
 </div>
+{% block script %}
+
+{% endblock script %}
 </body>
 </html>
