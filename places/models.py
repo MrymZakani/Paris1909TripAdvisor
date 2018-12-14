@@ -89,7 +89,7 @@ class Place(models.Model):
             'id': self.id,
             'name': self.name,
             'category': self.category.name if self.category else "",
-            'description': self.description.replace("'", "").replace("\"", ""),  # TODO
+            'description': self.description,  # TODO
             'x': self.get_x(),
             'y': self.get_y(),
             'image': self.get_first_image()
@@ -230,3 +230,38 @@ class AuditoriumTypeCost(models.Model):
     type = models.CharField(max_length=2, choices=TYPE_CHOICES)
     cost_from = models.FloatField(null=True, blank=True)
     cost_to = models.FloatField(null=True, blank=True)
+
+
+class District(models.Model):
+    name = models.TextField()
+    description = models.TextField(null=True, blank=True)
+    image = models.URLField()
+
+    def __str__(self):
+        return self.name
+
+
+class DistrictPlace(models.Model):
+    place = models.ForeignKey(Place, on_delete=models.CASCADE)
+    district = models.ForeignKey(District, on_delete=models.CASCADE)
+
+    def __str__(self):
+        return str(self.district) + "-" + str(self.place)
+
+
+class Experience(models.Model):
+    name = models.TextField()
+    time = models.TextField()
+    description = models.TextField(null=True, blank=True)
+    icon = models.URLField()
+
+    def __str__(self):
+        return self.name
+
+
+class ExperiencePlace(models.Model):
+    place = models.ForeignKey(Place, on_delete=models.CASCADE)
+    experience = models.ForeignKey(Experience, on_delete=models.CASCADE)
+
+    def __str__(self):
+        return str(self.experience) + "-" + str(self.place)
