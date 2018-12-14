@@ -265,3 +265,11 @@ class ExperiencePlace(models.Model):
 
     def __str__(self):
         return str(self.experience) + "-" + str(self.place)
+
+
+class ExperienceCategory(models.Model):
+    category = models.ForeignKey(Category, on_delete=models.CASCADE)
+    experience = models.ForeignKey(Experience, on_delete=models.CASCADE)
+
+    def __str__(self):
+        return str(self.experience) + "-" + str(self.category)

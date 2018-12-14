@@ -3,7 +3,7 @@ from django.contrib import admin
 # Register your models here.
 from places.models import Neighborhood, MetroStation, Place, PlaceImage, Menu, MenuOption, Schedule, DaySchedule, Cost, \
     BallCost, CabaretCost, PatinageCost, AuditoriumTypeCost, Category, Experience, ExperiencePlace, District, \
-    DistrictPlace
+    DistrictPlace, ExperienceCategory
 
 
 class PlaceImageInline(admin.TabularInline):
@@ -110,6 +110,11 @@ class ExperienceAdmin(admin.ModelAdmin):
 @admin.register(ExperiencePlace)
 class ExperiencePlaceAdmin(admin.ModelAdmin):
     list_display = ('experience', 'place')
+
+
+@admin.register(ExperienceCategory)
+class ExperienceCategoryAdmin(admin.ModelAdmin):
+    list_display = ('experience', 'category')
 
 
 @admin.register(District)
