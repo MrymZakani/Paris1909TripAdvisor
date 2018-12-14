@@ -89,7 +89,7 @@ class Place(models.Model):
             'id': self.id,
             'name': self.name,
             'category': self.category.name if self.category else "",
-            'description': self.description,  # TODO
+            'description': self.description.replace("'", "").replace('"', ""),  # TODO
             'x': self.get_x(),
             'y': self.get_y(),
             'image': self.get_first_image()
