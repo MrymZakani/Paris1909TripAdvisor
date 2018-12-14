@@ -27,7 +27,7 @@
                 </div>
                 <div class="uk-child-width-1-4@m uk-grid-small uk-grid-match" uk-grid>
                     {% for category in categories %}
-                        <div>
+                        <a>
                             <div class="uk-card uk-card-default uk-grid-collapse uk-child-width-1-2@s uk-margin category"
                                  uk-grid>
                                 <div class="uk-card-media-left uk-cover-container">
@@ -37,7 +37,7 @@
                                     <h4 class="uk-card-title uk-padding-small">{{ category.name }}</h4>
                                 </div>
                             </div>
-                        </div>
+                        </a>
                     {% endfor %}
                 </div>
 
