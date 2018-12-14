@@ -14,3 +14,16 @@ html, body {
     text-align: center;
     margin-bottom: 20px;
 }
+
+.selected-category {
+    background-color: #d16c5b !important;
+}
+
+.category:hover {
+    background-color: rgb(209, 178, 157) !important;
+}
+
+.place-map {
+    background-image: url("../images/placeholder2.png");
+
+}

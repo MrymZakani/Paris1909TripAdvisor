@@ -28,7 +28,7 @@
                 <div class="uk-child-width-1-4@m uk-grid-small uk-grid-match" uk-grid>
                     {% for category in categories %}
                         <div>
-                            <div class="uk-card uk-card-default uk-grid-collapse uk-child-width-1-2@s uk-margin"
+                            <div class="uk-card uk-card-default uk-grid-collapse uk-child-width-1-2@s uk-margin category"
                                  uk-grid>
                                 <div class="uk-card-media-left uk-cover-container">
                                     <img src="{{ category.image }}" alt="" uk-cover>
@@ -46,38 +46,17 @@
                     <div class="uk-width-1-2 uk-light">
                         <h3>Places</h3>
 
-                        {% for place in places %}
-                            <a href="/place_info/{{ place.id }}">
-                                <div class="uk-card uk-card-default uk-grid-collapse uk-child-width-1-2@s uk-margin"
-                                     uk-grid>
-                                    <div class="uk-card-media-left uk-cover-container">
-                                        <img src="{{ place.image }}" alt="" uk-cover>
-                                    </div>
-                                    <div>
-                                        <div class="uk-card-body">
-                                            <h3 class="uk-card-title">{{ place.name }}</h3>
-                                            <span class="uk-label uk-label-warning uk-margin-remove uk-padding-remove">{{ place.category }}</span>
+                        <div id="places-container">
 
-                                            <p>{{ place.description|slice:":100" }}...</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </a>
-                        {% endfor %}
-
+                        </div>
                     </div>
                     <div class="uk-width-1-2">
                         <div class="uk-inline uk-dark" uk-sticky>
                             <img src="{% static "images/map.jpg" %}">
-                            {% for place in places %}
-                                {% if place.x and place.y %}
-                                    <a class="uk-position-absolute uk-transform-center place-on-map uk-icon uk-icon-image"
-                                       id="place-{{ place.id }}"
-                                       style="left: {{ place.x }}%; top: {{ place.y }}%; background-image: url({% static "images/placeholder.png" %}); width: 7px;"
-                                       href="/place_info/{{ place.id }}"
-                                       uk-tooltip="{{ place.name }}"></a>
-                                {% endif %}
-                            {% endfor %}
+
+                            <div id="places-map-container">
+
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -99,7 +78,7 @@
     <script>
         var categories = "{{ categories | safe }}";
         var places = "{{ places | safe }}";
-        {#        places = places.replace(/'/g, '"');#}
+        places = places.replace(/'/g, '"').replace(/[^ -~]+/g, "");
         places = JSON.parse(places);
     </script>
     <script type="text/javascript" src="{% static "js/places.js" %}"></script>
