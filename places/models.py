@@ -87,7 +87,7 @@ class Place(models.Model):
     def serialize(self):
         place = {
             'id': self.id,
-            'name': self.name,
+            'name': self.name.replace("'", "").replace('"', ""),
             'category': self.category.name if self.category else "",
             'description': self.description.replace("'", "").replace('"', ""),  # TODO
             'x': self.get_x(),
