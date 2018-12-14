@@ -40,17 +40,28 @@
                         </div>
                     </div>
                 </div>
-                {% if place.address %}<p>{{ place.address }}</p>{% endif %}
+                {% if place.address %}<p>
+                    <span uk-icon="icon: home"></span>
+                    {{ place.address }}</p>{% endif %}
 
-                {% if place.neighborhood %}<p> <p>{{ place.neighborhood }}</p>{% endif %}
+                {% if place.neighborhood %}<p>
+                    <span uk-icon="icon: info"></span>
+                    {{ place.neighborhood }}</p>{% endif %}
 
-                {% if place.phone_number %}<p>{{ place.phone_number }}</p>{% endif %}
+                {% if place.phone_number %}<p>
+                    <span uk-icon="icon: receiver"></span>
+                    {{ place.phone_number }}</p>{% endif %}
 
-                {% if place.comment %}<p>{{ place.comment }}</p>{% endif %}
+                {% if place.comment %}<p>
+                    <span uk-icon="icon: comment"></span>
+                    {{ place.comment }}</p>{% endif %}
 
-                {% if place.longitude and place.latitude %}<a>
-                    See contemporary place!
-                </a>{% endif %}
+                {% if place.longitude and place.latitude %}
+                    <a class="uk-button uk-button-default"
+                       href="https://www.google.com/maps/search/?api=1&query={{ place.latitude }},{{ place.longitude }}">
+                        <span uk-icon="icon: location"></span>
+                        See the contemporary place!
+                    </a>{% endif %}
             </div>
         </div>
 
