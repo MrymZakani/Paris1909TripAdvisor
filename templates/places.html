@@ -99,16 +99,9 @@
                 <ul class="js-filter">
                     {% for experience in experiences %}
                         <li class="tag-{{ experience.name }}">
-                            <h3>{{ experience.name }}</h3>
-                            <h4>{{ experience.time }}</h4>
+                            <h3>{{ experience.time }} {{ experience.name }}</h3>
 
-                            <div class="uk-panel">
-                                <img class="uk-align-right uk-margin-remove-adjacent" src="{{ experience.icon }}"
-                                     width="225"
-                                     height=150" alt="Example image">
-
-                                <p>{{ experience.description }}</p>
-                            </div>
+                            <p>{{ experience.description }}</p>
 
                             <div class="uk-child-width-1-4@m uk-grid-small uk-grid-match"
                                  style="padding-bottom: 30px; padding-top: 20px;" uk-grid>
