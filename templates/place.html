@@ -50,16 +50,10 @@
             <div>
                 <h3>details</h3>
 
-                <div>
-                    <div class="uk-card uk-card-default uk-grid-collapse uk-child-width-1-2@s uk-margin" uk-grid>
-                        <div class="uk-card-media-left uk-cover-container">
-                            <img src="{{ place.category.image }}" alt="" uk-cover>
-                        </div>
-                        <div>
-                            <h4 class="uk-card-title uk-padding-small">{{ place.category.name }}</h4>
-                        </div>
-                    </div>
-                </div>
+                {% if place.category %}<h4>
+                    <span uk-icon="icon: tag"></span>
+                    {{ place.category.name }}</h4>{% endif %}
+
                 {% if place.address %}<p>
                     <span uk-icon="icon: home"></span>
                     {{ place.address }}</p>{% endif %}
