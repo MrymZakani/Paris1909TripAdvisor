@@ -2,15 +2,15 @@ html, body {
     background-color: #11100c;
     background: #11100c !important;
     height: 100%;
-    font-family: 'Sofia' !important;
+    font-family: 'Amarante' !important;
 }
 
-* {
-    font-family: 'Sofia' !important;
+h1, h2, h3, h4 {
+    font-family: 'Amarante' !important;
 }
 
 p {
-    font-family: 'Inconsolata' !important;
+    font-family: 'Roboto Slab' !important;
 }
 
 .pa-title {
