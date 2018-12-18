@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from places.models import Place, Category, District, Experience
+from places.models import Place, Category, District, Experience, BallCost, CabaretCost, PatinageCost
 
 
 def home(request):
@@ -45,4 +45,20 @@ def find(request):
 def place_info(request, id):
     place = Place.objects.get(id=id)
     similar_places = Place.objects.filter(category=place.category).exclude(id=place.id)
-    return render(request, 'place.html', {'place': place, 'similar_places': similar_places})
+
+    cost = None
+
+    if place.type == Place.BALL:
+        cost = BallCost.objects.filter(place=place)
+
+    elif place.type == Place.CABARET:
+        cost = CabaretCost.objects.filter(place=place)
+
+    elif place.type == Place.PATINAGE:
+        cost = PatinageCost.objects.filter(place=place)
+
+    if cost and len(cost) > 0:
+        cost = cost.first()
+        cost = cost.get_fields()
+
+    return render(request, 'place.html', {'place': place, 'similar_places': similar_places, 'cost': cost})

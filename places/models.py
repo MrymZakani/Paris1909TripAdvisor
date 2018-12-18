@@ -181,6 +181,13 @@ class BallCost(Cost):
     man_to = models.FloatField(null=True, blank=True)
     comment = models.TextField(null=True, blank=True)
 
+    def get_fields(self):
+        return [["entrance from", self.entrance_from], ["entrance to", self.entrance_to],
+                ["woman from", self.woman_from],
+                ["woman to", self.woman_to],
+                ["man from", self.man_from]
+                ]
+
 
 class CabaretCost(Cost):
     entrance_from = models.FloatField(null=True, blank=True)
@@ -188,10 +195,20 @@ class CabaretCost(Cost):
     glass_from = models.FloatField(null=True, blank=True)
     glass_to = models.FloatField(null=True, blank=True)
 
+    def get_fields(self):
+        return [["entrance from", self.entrance_from], ["entrance to", self.entrance_to],
+                ["glass from", self.glass_from],
+                ["glass to", self.glass_to],
+                ]
+
 
 class PatinageCost(Cost):
     cost_from = models.FloatField(null=True, blank=True)
     cost_to = models.FloatField(null=True, blank=True)
+
+    def get_fields(self):
+        return [["cost from", self.cost_from], ["cost to", self.cost_to],
+                ]
 
 
 class AuditoriumTypeCost(models.Model):

@@ -70,11 +70,19 @@
                     <span uk-icon="icon: comment"></span>
                     {{ place.comment }}</p>{% endif %}
 
+                {% if cost %}
+                    <span uk-icon="icon: database"></span> Cost
+                    {% for c in cost %}
+                        {% if c.0 and c.1 %}
+                            <p>{{ c.0 }}: {{ c.1 }}</p>
+                        {% endif %}
+                    {% endfor %}{% endif %}
+
                 {% if place.longitude and place.latitude %}
                     <a class="uk-button uk-button-default"
                        href="https://www.google.com/maps/search/?api=1&query={{ place.latitude }},{{ place.longitude }}">
                         <span uk-icon="icon: location"></span>
-                        See the contemporary place!
+                        Check the modern map
                     </a>{% endif %}
             </div>
         </div>
