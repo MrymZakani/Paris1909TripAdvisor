@@ -23,14 +23,12 @@
         <div class="uk-child-width-1-4@m uk-grid-small uk-grid-match" uk-grid>
             {% for place in places %}
                 <a href="/place_info/{{ place.id }}">
-                    <div>
-                        <div class="uk-card uk-card-default uk-grid-collapse uk-child-width-1-2@s uk-margin" uk-grid>
-                            <div class="uk-card-media-left uk-cover-container">
-                                <img src="{{ place.get_first_image }}" alt="" uk-cover>
-                            </div>
-                            <div>
-                                <h4 class="uk-card-title uk-padding-small">{{ place.name }}</h4>
-                            </div>
+                    <div class="uk-card uk-card-default uk-grid-collapse uk-child-width-1-2@s uk-margin" uk-grid>
+                        <div class="uk-card-media-left uk-cover-container">
+                            <img src="{{ place.get_first_image }}" alt="" uk-cover>
+                        </div>
+                        <div>
+                            <h4 class="uk-card-title uk-padding-small">{{ place.name }}</h4>
                         </div>
                     </div>
                 </a>

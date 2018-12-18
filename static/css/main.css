@@ -9,6 +9,10 @@ html, body {
     font-family: 'Sofia' !important;
 }
 
+p {
+    font-family: 'Inconsolata' !important;
+}
+
 .pa-title {
     background-color: #d1c8ab;
     text-align: center;

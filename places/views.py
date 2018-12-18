@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from places.models import Place, Category
+from places.models import Place, Category, District, Experience
 
 
 def home(request):
@@ -10,8 +10,12 @@ def home(request):
 def explore(request):
     places = Place.objects.all()
     categories = Category.objects.all()
+    districts = District.objects.all()
+    experiences = Experience.objects.all()
     return render(request, 'places.html', {'places': [place.serialize() for place in places],
-                                           'categories': categories})
+                                           'categories': categories,
+                                           'districts': districts,
+                                           'experiences': experiences})
 
 
 def find(request):

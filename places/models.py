@@ -243,7 +243,7 @@ class District(models.Model):
 
 class DistrictPlace(models.Model):
     place = models.ForeignKey(Place, on_delete=models.CASCADE)
-    district = models.ForeignKey(District, on_delete=models.CASCADE)
+    district = models.ForeignKey(District, on_delete=models.CASCADE, related_name="places")
 
     def __str__(self):
         return str(self.district) + "-" + str(self.place)
@@ -261,7 +261,7 @@ class Experience(models.Model):
 
 class ExperiencePlace(models.Model):
     place = models.ForeignKey(Place, on_delete=models.CASCADE)
-    experience = models.ForeignKey(Experience, on_delete=models.CASCADE)
+    experience = models.ForeignKey(Experience, on_delete=models.CASCADE, related_name="places")
 
     def __str__(self):
         return str(self.experience) + "-" + str(self.place)

@@ -18,7 +18,7 @@
         <li><a href="#">Neighborhoods</a></li>
     </ul>
 
-    <ul class="uk-switcher uk-margin">
+    <ul class="uk-switcher uk-margin uk-light">
         <li>
             <div>
                 <div class="uk-light">
@@ -62,11 +62,75 @@
                 </div>
             </div>
         </li>
-        <li>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-            consequat.
+        <li class="uk-light">
+            <h3>Experiences</h3>
+
+            <div>
+                {% for experience in experiences %}
+
+                    <h3>{{ experience.name }}</h3>
+                    <h4>{{ experience.time }}</h4>
+                    <div class="uk-panel">
+                        <img class="uk-align-right uk-margin-remove-adjacent" src="{{ experience.icon }}" width="225"
+                             height=150" alt="Example image">
+
+                        <p>{{ experience.description }}</p>
+                    </div>
+
+                    <div class="uk-child-width-1-4@m uk-grid-small uk-grid-match"
+                         style="padding-bottom: 30px; padding-top: 20px;" uk-grid>
+                        {% for place in experience.places.all %}
+                            <a href="/place_info/{{ place.place.id }}">
+                                <div class="uk-card uk-card-default uk-grid-collapse uk-child-width-1-2@s uk-margin"
+                                     uk-grid>
+                                    <div class="uk-card-media-left uk-cover-container">
+                                        <img src="{{ place.place.get_first_image }}" alt="" uk-cover>
+                                    </div>
+                                    <div>
+                                        <h4 class="uk-card-title uk-padding-small">{{ place.place.name }}</h4>
+                                    </div>
+                                </div>
+                            </a>
+                        {% endfor %}
+                    </div>
+
+                {% endfor %}
+            </div>
+
         </li>
-        <li>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur, sed
-            do eiusmod.
+        <li class="uk-light">
+            <h3>Neighborhoods</h3>
+
+            <div>
+                {% for district in districts %}
+
+                    <h4>{{ district.name }}</h4>
+                    <div class="uk-panel">
+                        <img class="uk-align-right uk-margin-remove-adjacent" src="{{ district.image }}" width="225"
+                             height=150" alt="Example image">
+
+                        <p>{{ district.description }}</p>
+                    </div>
+
+                    <div class="uk-child-width-1-4@m uk-grid-small uk-grid-match"
+                         style="padding-bottom: 30px; padding-top: 20px;" uk-grid>
+                        {% for place in district.places.all %}
+                            <a href="/place_info/{{ place.place.id }}">
+                                <div class="uk-card uk-card-default uk-grid-collapse uk-child-width-1-2@s uk-margin"
+                                     uk-grid>
+                                    <div class="uk-card-media-left uk-cover-container">
+                                        <img src="{{ place.place.get_first_image }}" alt="" uk-cover>
+                                    </div>
+                                    <div>
+                                        <h4 class="uk-card-title uk-padding-small">{{ place.place.name }}</h4>
+                                    </div>
+                                </div>
+                            </a>
+                        {% endfor %}
+                    </div>
+
+                {% endfor %}
+            </div>
         </li>
     </ul>
 
