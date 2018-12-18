@@ -18,13 +18,17 @@
                 <div class="uk-position-relative uk-visible-toggle uk-light" uk-slider="center: true">
 
                     <ul class="uk-slider-items uk-grid">
-                        {% for image in place.images.all %}
-                            <li class="uk-width-3-4">
-                                <div class="uk-panel">
-                                    <img src="{{ image.link }}">
-                                </div>
-                            </li>
-                        {% endfor %}
+                        {% if place.images.all|length > 0 %}
+                            {% for image in place.images.all %}
+                                <li class="uk-width-3-4">
+                                    <div class="uk-panel">
+                                        <img src="{{ image.link }}">
+                                    </div>
+                                </li>
+                            {% endfor %}
+                        {% else %}
+                            <img src=" https://i.imgur.com/OWv4uhM.jpg">
+                        {% endif %}
                     </ul>
 
                     <a class="uk-position-center-left uk-position-small uk-hidden-hover" href="#" uk-slidenav-previous

@@ -71,7 +71,7 @@ class Place(models.Model):
     def get_first_image(self):
         if len(self.images.all()) > 0:
             return self.images.all()[0].link
-        return "https://www.freeiconspng.com/uploads/no-image-icon-4.png"
+        return "https://i.imgur.com/OWv4uhM.jpg"
 
     def get_x(self):
         return int(
