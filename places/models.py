@@ -84,18 +84,6 @@ class Place(models.Model):
     def __str__(self):
         return self.name
 
-    def serialize(self):
-        place = {
-            'id': self.id,
-            'name': self.name.replace("'", "").replace('"', ""),
-            'category': self.category.name if self.category else "",
-            'description': self.description.replace("'", "").replace('"', ""),  # TODO
-            'x': self.get_x(),
-            'y': self.get_y(),
-            'image': self.get_first_image()
-        }
-        return place
-
 
 class PlaceImage(models.Model):
     POSTER = 'po'

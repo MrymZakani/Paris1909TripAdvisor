@@ -12,7 +12,20 @@ def explore(request):
     categories = Category.objects.all()
     districts = District.objects.all()
     experiences = Experience.objects.all()
-    return render(request, 'places.html', {'places': [place.serialize() for place in places],
+    return render(request, 'places.html', {'places': places,
+                                           'categories': categories,
+                                           'districts': districts,
+                                           'experiences': experiences})
+
+
+def explore_category(request, id):
+    category = Category.objects.get(id=id)
+    places = Place.objects.filter(category=category)
+    categories = Category.objects.all()
+    districts = District.objects.all()
+    experiences = Experience.objects.all()
+    return render(request, 'places.html', {'places': places,
+                                           'category_id': category.id,
                                            'categories': categories,
                                            'districts': districts,
                                            'experiences': experiences})
