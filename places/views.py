@@ -10,8 +10,8 @@ def home(request):
 def explore(request):
     places = Place.objects.all()
     categories = Category.objects.all()
-    districts = District.objects.all()
-    experiences = Experience.objects.all()
+    districts = District.objects.all().order_by('order')
+    experiences = Experience.objects.all().order_by('order')
     return render(request, 'places.html', {'places': places,
                                            'categories': categories,
                                            'districts': districts,
@@ -22,8 +22,8 @@ def explore_category(request, id):
     category = Category.objects.get(id=id)
     places = Place.objects.filter(category=category)
     categories = Category.objects.all()
-    districts = District.objects.all()
-    experiences = Experience.objects.all()
+    districts = District.objects.all().order_by('order')
+    experiences = Experience.objects.all().order_by('order')
     return render(request, 'places.html', {'places': places,
                                            'category_id': category.id,
                                            'categories': categories,

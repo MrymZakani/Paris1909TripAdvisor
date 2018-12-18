@@ -224,6 +224,7 @@ class District(models.Model):
     name = models.TextField()
     description = models.TextField(null=True, blank=True)
     image = models.URLField()
+    order = models.IntegerField(null=True, blank=True)
 
     def __str__(self):
         return self.name
@@ -242,6 +243,7 @@ class Experience(models.Model):
     time = models.TextField()
     description = models.TextField(null=True, blank=True)
     icon = models.URLField()
+    order = models.IntegerField(null=True, blank=True)
 
     def __str__(self):
         return self.name
