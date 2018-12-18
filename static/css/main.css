@@ -2,15 +2,15 @@ html, body {
     background-color: #11100c;
     background: #11100c !important;
     height: 100%;
-    font-family: 'Amarante' !important;
+    font-family: 'Della Respira' !important;
 }
 
 h1, h2, h3, h4 {
-    font-family: 'Amarante' !important;
+    font-family: 'Aladin' !important;
 }
 
 p {
-    font-family: 'Roboto Slab' !important;
+    font-family: 'Della Respira' !important;
 }
 
 .pa-title {
@@ -30,4 +30,8 @@ p {
 .place-map {
     background-image: url("../images/placeholder2.png");
 
+}
+
+.uk-card-default {
+    background-color: #d1c8ab !important;
 }

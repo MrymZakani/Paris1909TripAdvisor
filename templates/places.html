@@ -87,36 +87,50 @@
         <li class="uk-light">
             <h3>Experiences</h3>
 
-            <div>
-                {% for experience in experiences %}
+            <div uk-filter="target: .js-filter">
 
-                    <h3>{{ experience.name }}</h3>
-                    <h4>{{ experience.time }}</h4>
-                    <div class="uk-panel">
-                        <img class="uk-align-right uk-margin-remove-adjacent" src="{{ experience.icon }}" width="225"
-                             height=150" alt="Example image">
+                <ul class="uk-subnav uk-subnav-pill">
+                    {% for experience in experiences %}
+                        <li uk-filter-control=".tag-{{ experience.name }}">
+                            <a href="#">{{ experience.name }}</a></li>
+                    {% endfor %}
+                </ul>
 
-                        <p>{{ experience.description }}</p>
-                    </div>
+                <ul class="js-filter">
+                    {% for experience in experiences %}
+                        <li class="tag-{{ experience.name }}">
+                            <h3>{{ experience.name }}</h3>
+                            <h4>{{ experience.time }}</h4>
 
-                    <div class="uk-child-width-1-4@m uk-grid-small uk-grid-match"
-                         style="padding-bottom: 30px; padding-top: 20px;" uk-grid>
-                        {% for place in experience.places.all %}
-                            <a href="/place_info/{{ place.place.id }}">
-                                <div class="uk-card uk-card-default uk-grid-collapse uk-child-width-1-2@s uk-margin"
-                                     uk-grid>
-                                    <div class="uk-card-media-left uk-cover-container">
-                                        <img src="{{ place.place.get_first_image }}" alt="" uk-cover>
-                                    </div>
-                                    <div>
-                                        <h4 class="uk-card-title uk-padding-small">{{ place.place.name }}</h4>
-                                    </div>
-                                </div>
-                            </a>
-                        {% endfor %}
-                    </div>
+                            <div class="uk-panel">
+                                <img class="uk-align-right uk-margin-remove-adjacent" src="{{ experience.icon }}"
+                                     width="225"
+                                     height=150" alt="Example image">
 
-                {% endfor %}
+                                <p>{{ experience.description }}</p>
+                            </div>
+
+                            <div class="uk-child-width-1-4@m uk-grid-small uk-grid-match"
+                                 style="padding-bottom: 30px; padding-top: 20px;" uk-grid>
+                                {% for place in experience.places.all %}
+                                    <a href="/place_info/{{ place.place.id }}">
+                                        <div class="uk-card uk-card-default uk-grid-collapse uk-child-width-1-2@s uk-margin"
+                                             uk-grid>
+                                            <div class="uk-card-media-left uk-cover-container">
+                                                <img src="{{ place.place.get_first_image }}" alt="" uk-cover>
+                                            </div>
+                                            <div>
+                                                <h4 class="uk-card-title uk-padding-small">{{ place.place.name }}</h4>
+                                            </div>
+                                        </div>
+                                    </a>
+                                {% endfor %}
+                            </div>
+
+                        </li>
+                    {% endfor %}
+                </ul>
+
             </div>
 
         </li>
