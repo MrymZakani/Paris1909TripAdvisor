@@ -182,10 +182,10 @@ class BallCost(Cost):
     comment = models.TextField(null=True, blank=True)
 
     def get_fields(self):
-        return [["entrance from", self.entrance_from], ["entrance to", self.entrance_to],
-                ["woman from", self.woman_from],
-                ["woman to", self.woman_to],
-                ["man from", self.man_from]
+        return [["Entrance from", self.entrance_from], ["Entrance to", self.entrance_to],
+                ["Woman from", self.woman_from],
+                ["Woman to", self.woman_to],
+                ["Man from", self.man_from]
                 ]
 
 
@@ -196,9 +196,9 @@ class CabaretCost(Cost):
     glass_to = models.FloatField(null=True, blank=True)
 
     def get_fields(self):
-        return [["entrance from", self.entrance_from], ["entrance to", self.entrance_to],
-                ["glass from", self.glass_from],
-                ["glass to", self.glass_to],
+        return [["Entrance from", self.entrance_from], ["entrance to", self.entrance_to],
+                ["Glass from", self.glass_from],
+                ["Glass to", self.glass_to],
                 ]
 
 
@@ -207,7 +207,7 @@ class PatinageCost(Cost):
     cost_to = models.FloatField(null=True, blank=True)
 
     def get_fields(self):
-        return [["cost from", self.cost_from], ["cost to", self.cost_to],
+        return [["Cost from", self.cost_from], ["Cost to", self.cost_to],
                 ]
 
 
