@@ -8,16 +8,14 @@
     <div class="uk-light" style="text-align: center">
 
         <form action="/find/" method="get">
-            <fieldset class="uk-fieldset">
-
-                <legend class="uk-legend">Search for a place</legend>
-
-                <div class="uk-margin">
-                    <input class="uk-input uk-width-large" type="text" placeholder="Name" id="search_for"
+            <legend class="uk-legend">Search for a place</legend>
+            <div class="uk-margin" uk-margin>
+                <div uk-form-custom="target: true">
+                    <input class="uk-input uk-width-medium" type="text" placeholder="Name" id="search_for"
                            name="search_for">
-                    <input type="submit" value="Search" class="uk-button uk-button-default">
                 </div>
-            </fieldset>
+                <input type="submit" value="Search" class="uk-button uk-button-default">
+            </div>
         </form>
 
         <div class="uk-child-width-1-4@m uk-grid-small uk-grid-match" uk-grid>
