@@ -39,8 +39,11 @@
                 </div>
             </div>
             <div>
-                <p>{{ place.description }}</p>
-
+                {% if place.description %}
+                    <p>{{ place.description }}</p>
+                {% else %}
+                    No information available!
+                {% endif %}
                 {% if place.description_orig %}
                     <a>See original text</a>
                     <p>{{ place.description_orig }}</p>
@@ -74,7 +77,7 @@
                     <span uk-icon="icon: database"></span> Cost
                     {% for c in cost %}
                         {% if c.0 and c.1 %}
-                            <p>{{ c.0 }}: {{ c.1 }}</p>
+                            <p>{{ c.0 }}: {{ c.1 }}FR</p>
                         {% endif %}
                     {% endfor %}{% endif %}
 
